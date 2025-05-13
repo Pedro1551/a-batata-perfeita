@@ -1,0 +1,130 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #fcf27d, #faa754);
+  color: #014466;
+  line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+  background: linear-gradient(to right, #06689d, #014466);
+  color: white;
+  text-align: center;
+  padding: 1.5em;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.2rem;
+}
+
+/* Seções */
+main {
+  padding: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Vídeo */
+video {
+  width: 100%;
+  border: 4px solid #faa754;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-top: 10px;
+}
+
+/* Imagem com zoom */
+.zoom {
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+}
+
+/* Botões */
+button {
+  background: linear-gradient(to right, #06689d, #014466);
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background: linear-gradient(to right, #014466, #06689d);
+}
+
+/* Quiz */
+.quiz {
+  margin-top: 40px;
+}
+
+.quiz form {
+  background: #ffffffdd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.quiz h2 {
+  margin-bottom: 20px;
+  color: #014466;
+}
+
+.quiz p {
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+  background-color: #014466;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+/* Rodapé */
+footer {
+  background-color: #014466;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espaço entre a imagem e o texto */
+}
+
+footer img.footer-logo {
+  width: 5.5em; /* Ajuste o tamanho da imagem conforme necessário */
+  height: auto;
+}
+
+footer p {
+  font-size: 1.2rem; /* Tamanho do texto */
+}

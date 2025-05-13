@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/potato.ico" type="image/x-icon">
+  <title>A Batata Frita Perfeita</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Tela de introdução (sobreposição central) */
+    #intro-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .intro-box {
+      background-color: #fcf27d;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .intro-box h1 {
+      color: #f37140;
+      margin-bottom: 15px;
+    }
+
+    .intro-box p {
+      color: #014466;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .intro-box button {
+      background-color: #f37140;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .intro-box button:hover {
+      background-color: #faa754;
+    }
+
+    body.intro-active main,
+    body.intro-active footer {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Animação de saída */
+    .fade-out {
+      opacity: 0;
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="intro-active">
+
+  <!-- Tela de Introdução -->
+  <div id="intro-screen">
+    <div class="intro-box">
+      <h1>Bem-vindo ao curso!</h1>
+      <p>Aprenda os segredos da batata frita perfeita:<br>crocante por fora, macia por dentro. Assista, interaja e teste seus conhecimentos!</p>
+      <button onclick="entrarCurso()">Entrar no curso</button>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <header>
+    <h1>A Batata Frita Perfeita!</h1>
+  </header>
+
+  <main>
+    <section class="video-section">
+      <h2>Vídeo Tutorial</h2>
+<iframe width="100%" height="500px" src="https://www.youtube.com/embed/FhTr6gWGdcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+    </section>
+
+    <section class="imagem-zoom">
+      <h2>Visualize a batata crocante!</h2>
+      <img src="img/batata1.jpg" alt="Batata frita crocante" class="zoom">
+    </section>
+
+    <section class="interativo">
+      <h2>Descubra o segredo da batata!</h2>
+      <button onclick="mostrarDica()">Clique para uma dica!</button>
+      <p id="dica"></p>
+    </section>
+
+    <section class="quiz">
+      <h2>Exercícios de Fixação!</h2>
+      <form id="quiz-form" onsubmit="return validarQuiz()">
+        <p>1. Qual o melhor tipo de batata para fritar?</p>
+        <label><input type="radio" name="q1" value="errado"> Batata-doce</label><br>
+        <label><input type="radio" name="q1" value="certo"> Batata asterix</label><br>
+
+        <p>2. É recomendado fritar a batata diretamente após cortar?</p>
+        <label><input type="radio" name="q2" value="certo"> Não, é melhor deixar na água antes</label><br>
+        <label><input type="radio" name="q2" value="errado"> Sim, direto no óleo</label><br>
+
+        <p>3. A batata deve ser frita duas vezes. (Verdadeiro ou Falso)</p>
+        <label><input type="radio" name="q3" value="verdadeiro"> Verdadeiro</label><br>
+        <label><input type="radio" name="q3" value="falso"> Falso</label><br><br>
+
+        <button type="submit">Verificar Respostas</button>
+      </form>
+      <div id="resultado"></div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="img/senai1.1.png" alt="Logo" class="footer-logo">
+    <p>&copy; 2025 - Curso Autoinstrucional</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+  <script>
+    function entrarCurso() {
+      const intro = document.getElementById("intro-screen");
+      intro.classList.add("fade-out");
+
+      setTimeout(() => {
+        intro.remove();
+        document.body.classList.remove("intro-active");
+      }, 600);
+    }
+
+    function mostrarDica() {
+      document.getElementById("dica").innerText = "Use batata asterix e pré-cozinhe antes de fritar!";
+    }
+
+    function validarQuiz() {
+      const respostas = document.forms["quiz-form"];
+      let acertos = 0;
+
+      if (respostas.q1.value === "certo") acertos++;
+      if (respostas.q2.value === "certo") acertos++;
+      if (respostas.q3.value === "verdadeiro") acertos++;
+
+      document.getElementById("resultado").innerText = `Você acertou ${acertos} de 3 questões.`;
+      return false;
+    }
+  </script>
+</body>
+</html>
